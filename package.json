@@ -1,0 +1,21 @@
+{
+  "name": "placement-week-scheduler",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "cd backend && npm install --legacy-peer-deps && cd ../frontend && npm install --legacy-peer-deps && npm run build",
+    "vercel-build": "cd backend && npm install --legacy-peer-deps && cd ../frontend && npm install --legacy-peer-deps && npm run build"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "cors": "^2.8.5",
+    "graphql": "^15.8.0",
+    "express-graphql": "^0.12.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/cors": "^2.8.17",
+    "@types/node": "^22.13.4",
+    "typescript": "^5.7.3"
+  }
+}
