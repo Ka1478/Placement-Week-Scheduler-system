@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: placement-scheduler-backend
+  namespace: placement-scheduler
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: placement-scheduler-backend
+  template:
+    metadata:
+      labels:
+        app: placement-scheduler-backend
+    spec:
+      containers:
+      - name: backend
+        image: mirailabs/placement-scheduler-backend:latest
+        ports:
+        - containerPort: 4000
+        resources:
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: placement-scheduler-frontend
+  namespace: placement-scheduler
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: placement-scheduler-frontend
+  template:
+    metadata:
+      labels:
+        app: placement-scheduler-frontend
+    spec:
+      containers:
+      - name: frontend
+        image: mirailabs/placement-scheduler-frontend:latest
+        ports:
+        - containerPort: 80
